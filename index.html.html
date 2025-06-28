@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>分组柱状图</title>
+    <script src="https://gw.alipayobjects.com/os/lib/antv/g2plot/0.11.3/dist/g2plot.js"></script>
+</head>
+<body>
+<div id="app"></div>
+<script>
+    const container = document.getElementById('app');
+    const data = [
+        {"x": "家具家电", "type": "门店一", "y": 233},
+        {"x": "家具家电", "type": "门店二", "y": 550},
+        {"x": "粮油副食", "type": "门店一", "y": 834},
+        {"x": "粮油副食", "type": "门店二", "y": 152},
+        {"x": "美容洗护", "type": "门店一", "y": 63},
+        {"x": "美容洗护", "type": "门店二", "y": 602},
+        {"x": "母婴用品", "type": "门店一", "y": 481},
+        {"x": "母婴用品", "type": "门店二", "y": 950},
+        {"x": "进口食品", "type": "门店一", "y": 256},
+        {"x": "进口食品", "type": "门店二", "y": 50},
+        {"x": "食品饮料", "type": "门店一", "y": 43},
+        {"x": "食品饮料", "type": "门店二", "y": 10},
+        {"x": "家庭清洁", "type": "门店一", "y": 858},
+        {"x": "家庭清洁", "type": "门店二", "y": 793}
+    ];
+    const config = {
+        "title": {"visible": true, "text": "分组柱状图"},
+        "description": {"visible": true, "text": "一个简单的分组柱状图"},
+        "legend": {"flipPage": false},
+        "xAxis": {"title": {"visible": false}},
+        "yAxis": {"title": {"visible": false}},
+        "forceFit": false,
+        "width": 560,
+        "height": 376,
+        "xField": "x",
+        "yField": "y",
+        "groupField": "type",
+        "color": ["#5B8FF9", "#5AD8A6"]
+    };
+    const plot = new g2plot.GroupColumn(container, {data, ...config});
+    plot.render();
+</script>
+</body>
+</html>
